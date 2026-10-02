@@ -1,0 +1,761 @@
+.destination-page {
+  background: #f3f0e9;
+  color: #171714;
+}
+
+/* =================================
+   HERO
+================================= */
+
+.destination-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 120px 8vw 90px;
+
+  color: white;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  overflow: hidden;
+
+  isolation: isolate;
+}
+
+.back-button:hover {
+  background: white;
+  color: #171714;
+
+  transform: translateX(-3px);
+}
+
+.destination-hero::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.05) 35%,
+      rgba(0, 0, 0, 0.35) 70%,
+      rgba(0, 0, 0, 0.72) 100%
+    );
+
+  pointer-events: none;
+}
+
+.destination-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+}
+
+.destination-location {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 20px;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.7);
+}
+
+.destination-hero h1 {
+  margin: 0;
+
+  font-size: clamp(75px, 12vw, 170px);
+
+  line-height: 0.82;
+
+  letter-spacing: -8px;
+
+  font-weight: 500;
+}
+
+.destination-hero-content p {
+  margin: 22px 0 0;
+
+  font-size: 18px;
+
+  color: rgba(255,255,255,0.75);
+}
+
+.hero-scroll-text {
+  position: absolute;
+
+  right: 8vw;
+  bottom: 35px;
+
+  z-index: 2;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  color: rgba(255,255,255,0.6);
+}
+
+
+/* =================================
+   INTRO
+================================= */
+
+.destination-intro,
+.weather-section,
+.best-time {
+  display: grid;
+
+  grid-template-columns: 100px 1fr;
+
+  gap: 30px;
+
+  padding: 150px 8vw;
+}
+
+.destination-section-number {
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  color: #77736b;
+}
+
+.destination-intro-content {
+  max-width: 1000px;
+}
+
+.destination-label {
+  margin: 0 0 25px;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: #77736b;
+
+  font-weight: 600;
+}
+
+.destination-intro h2,
+.weather-content h2,
+.best-time h2 {
+  margin: 0;
+
+  font-size: clamp(55px, 7vw, 105px);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  font-weight: 500;
+}
+
+.destination-description {
+  max-width: 650px;
+
+  margin: 45px 0 30px;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+
+  color: #68655e;
+}
+
+.destination-tags-large {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.destination-tags-large span {
+  padding: 9px 15px;
+
+  border: 1px solid #d2cec5;
+
+  border-radius: 100px;
+
+  font-size: 11px;
+
+  color: #69665f;
+}
+
+
+/* =================================
+   WEATHER
+================================= */
+
+.weather-section {
+  background: #e7e3da;
+}
+
+.weather-content {
+  max-width: 1100px;
+}
+
+.weather-card {
+  margin-top: 60px;
+
+  padding: 35px;
+
+  background: #20211d;
+
+  color: white;
+}
+
+.weather-main {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+.weather-icon {
+  width: 75px;
+  height: 75px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  border-radius: 50%;
+
+  font-size: 30px;
+}
+
+.weather-temperature {
+  display: block;
+
+  font-size: 65px;
+
+  line-height: 0.9;
+
+  letter-spacing: -4px;
+}
+
+.weather-main p {
+  margin: 8px 0 0;
+
+  color: rgba(255,255,255,0.55);
+
+  font-size: 13px;
+}
+
+.weather-details {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 45px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.weather-details div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.weather-details span {
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: rgba(255,255,255,0.4);
+}
+
+.weather-details strong {
+  font-size: 16px;
+
+  font-weight: 500;
+}
+
+
+/* =================================
+   PLACES
+================================= */
+
+.places-section {
+  padding: 150px 8vw;
+}
+
+.places-heading {
+  display: flex;
+
+  align-items: end;
+
+  justify-content: space-between;
+
+  margin-bottom: 60px;
+}
+
+.places-heading h2 {
+  margin: 0;
+
+  font-size: clamp(55px, 7vw, 100px);
+
+  line-height: 0.88;
+
+  letter-spacing: -5px;
+
+  font-weight: 500;
+}
+
+.places-count {
+  color: #77736b;
+
+  font-size: 12px;
+}
+
+.places-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.place-card {
+  overflow: hidden;
+
+transition:
+  transform 0.5s ease,
+  box-shadow 0.5s ease;
+}
+
+.place-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.place-image {
+  position: relative;
+
+  height: 420px;
+
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.8s ease;
+}
+
+.place-card:hover .place-image {
+  transform: scale(1.04);
+}
+
+.place-number {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  color: rgba(255,255,255,0.75);
+}
+
+.place-content {
+  padding: 25px;
+}
+
+.place-content h3 {
+  margin: 0;
+
+  font-size: 29px;
+
+  font-weight: 500;
+
+  letter-spacing: -1px;
+}
+
+.place-content p {
+  margin: 15px 0 25px;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: #77736b;
+}
+
+.place-content button {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  border: none;
+
+  border-bottom: 1px solid #171714;
+
+  padding: 0 0 5px;
+
+  background: transparent;
+
+  color: #171714;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+
+/* =================================
+   BEST TIME
+================================= */
+
+.best-time {
+  background: #e7e3da;
+}
+
+.best-time-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  max-width: 650px;
+
+  margin-top: 55px;
+
+  padding: 28px;
+
+  border: 1px solid #ccc8be;
+
+  background: #f3f0e9;
+}
+
+.best-time-card > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.best-time-card span {
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: #77736b;
+}
+
+.best-time-card strong {
+  font-size: 17px;
+
+  font-weight: 500;
+}
+
+
+/* =================================
+   AI CTA
+================================= */
+
+.destination-ai {
+  padding: 150px 8vw;
+
+  text-align: center;
+
+  background: #20211d;
+
+  color: white;
+}
+
+.destination-ai > svg {
+  margin-bottom: 25px;
+}
+
+.destination-ai > p:first-of-type {
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: rgba(255,255,255,0.45);
+}
+
+.destination-ai h2 {
+  margin: 30px 0;
+
+  font-size: clamp(60px, 8vw, 120px);
+
+  line-height: 0.85;
+
+  letter-spacing: -6px;
+
+  font-weight: 500;
+}
+
+.ai-description {
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  color: rgba(255,255,255,0.5);
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+.ai-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 35px;
+
+  padding: 15px 22px;
+
+  border-radius: 100px;
+
+  background: white;
+
+  color: #171714;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition: transform 0.3s ease;
+}
+
+.ai-button:hover {
+  transform: translateY(-3px);
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.destination-footer {
+  padding: 40px 8vw;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background: #20211d;
+
+  border-top: 1px solid rgba(255,255,255,0.1);
+
+  color: white;
+}
+
+.destination-footer > div {
+  font-weight: 700;
+
+  letter-spacing: 4px;
+}
+
+.destination-footer a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: rgba(255,255,255,0.6);
+
+  text-decoration: none;
+
+  font-size: 12px;
+}
+
+
+/* =================================
+   NOT FOUND
+================================= */
+
+.destination-not-found {
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+
+  background: #f3f0e9;
+}
+
+.destination-not-found h1 {
+  font-size: 50px;
+}
+
+.destination-not-found a {
+  color: #171714;
+}
+
+.weather-loading,
+.weather-error {
+  min-height: 180px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  color: rgba(255,255,255,0.65);
+}
+
+.weather-spinner {
+  width: 25px;
+  height: 25px;
+
+  border: 2px solid rgba(255,255,255,0.2);
+
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  animation: weatherSpin 0.8s linear infinite;
+}
+
+@keyframes weatherSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.weather-error {
+  justify-content: flex-start;
+}
+
+.weather-error .weather-icon {
+  flex-shrink: 0;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+
+  .destination-hero {
+    min-height: 100svh;
+
+    padding: 110px 7vw 65px;
+
+    background-position: center;
+  }
+
+  .back-button {
+    top: 90px;
+    left: 7vw;
+  }
+
+  .destination-hero h1 {
+    font-size: clamp(65px, 18vw, 100px);
+
+    line-height: 0.85;
+
+    letter-spacing: -5px;
+  }
+
+  .destination-hero-content p {
+    font-size: 16px;
+  }
+
+  .destination-intro,
+  .weather-section,
+  .best-time {
+    grid-template-columns: 1fr;
+
+    padding: 90px 7vw;
+
+    gap: 30px;
+  }
+
+  .places-section {
+    padding: 90px 7vw;
+  }
+
+  .places-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-ai {
+    padding: 100px 7vw;
+  }
+
+  .destination-footer {
+    padding: 35px 7vw;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    text-align: center;
+  }
+}
+/* =================================
+   RESPONSIVE WIDTH SAFETY
+================================= */
+
+.destination-page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.destination-hero,
+.destination-intro,
+.weather-section,
+.places-section,
+.best-time,
+.destination-ai,
+.destination-footer {
+  width: 100%;
+  max-width: 100%;
+}
