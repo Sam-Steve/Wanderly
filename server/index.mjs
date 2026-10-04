@@ -78,10 +78,11 @@ Return ONLY valid JSON in this exact structure:
 }
 `;
 
-    const models = [
-      "gemini-3.8-flash",
-      "gemini-3.7-flash",
-    ];
+ const models = [
+  "gemini-3.8-flash",
+  "gemini-3.7-flash",
+  "gemini-3.5-flash-lite",
+];
 
     let response = null;
     let lastError = null;
