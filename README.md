@@ -1,16 +1,67 @@
-# React + Vite
+# Wanderly
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Wanderly is an India-focused travel discovery app built with React, Vite, React Router, Express, and Google's Gemini API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Explore and search Indian destinations with regional filters
+- Destination detail pages with places to visit and live weather
+- AI-generated day-by-day itineraries with interests and travel-style options
+- Responsive destination discovery and trip-planning interface
 
-## React Compiler
+## Requirements
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js 20.19+ or 22.12+ (required by current Vite)
+- npm
+- A Google Gemini API key for AI itinerary generation
 
-## Expanding the Oxlint configuration
+## Run locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Create a local environment file:
+
+   **Windows PowerShell**
+   ```powershell
+   Copy-Item .env.example .env
+   ```
+
+   **macOS/Linux**
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Open `.env` and replace the placeholder with your Gemini API key:
+
+   ```env
+   GEMINI_API_KEY=your_actual_key
+   ```
+
+4. Start the frontend and API server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the Vite URL printed in the terminal (usually http://localhost:5173).
+
+The frontend sends `/api` requests through Vite's development proxy to the Express server at `http://localhost:5000`. The API health check is available at `http://localhost:5000/api/health`.
+
+## Production build
+
+```bash
+npm run build
+npm run lint
+```
+
+The Express server requires `GEMINI_API_KEY` in its runtime environment. For deployment, configure that variable in the hosting provider's server environment. Do not put the key in a `VITE_*` variable, because Vite variables are exposed to browser code.
+
+## Troubleshooting
+
+- **AI setup message:** Confirm that `.env` exists at the project root and contains a valid `GEMINI_API_KEY`; restart the server after changing it.
+- **API unavailable:** Keep both Vite and Express running via `npm run dev`, and check `http://localhost:5000/api/health`.
+- **Gemini quota/model errors:** Check your Google AI project, API access, quota, and the server terminal logs.
