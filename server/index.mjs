@@ -27,6 +27,12 @@ app.get("/api/health", (req, res) => {
 
 app.post("/api/generate-itinerary", async (req, res) => {
   try {
+    if (!process.env.GEMINI_API_KEY) {
+      return res.status(503).json({
+        success: false,
+        message: "AI itinerary generation is not configured. Add GEMINI_API_KEY to the server environment.",
+      });
+    }
     const {
       destination,
       days,
@@ -34,19 +40,23 @@ app.post("/api/generate-itinerary", async (req, res) => {
       travelStyle,
     } = req.body;
 
-    if (!destination || !days) {
+    const parsedDays = Number(days);
+    const cleanDestination =
+      typeof destination === "string" ? destination.trim() : "";
+
+    if (!cleanDestination || !Number.isInteger(parsedDays) || parsedDays < 1 || parsedDays > 7) {
       return res.status(400).json({
         success: false,
-        message: "Destination and number of days are required.",
+        message: "Choose a destination and a whole number of days between 1 and 7.",
       });
     }
 
     const prompt = `
 You are Wanderly, an AI travel assistant focused only on travel within India.
 
-Create a practical ${days}-day travel itinerary for:
+Create a practical ${parsedDays}-day travel itinerary for:
 
-Destination: ${destination}
+Destination: ${cleanDestination}
 Interests: ${interests || "General sightseeing"}
 Travel style: ${travelStyle || "Balanced"}
 
@@ -174,6 +184,24 @@ Return ONLY valid JSON in this exact structure:
       throw new Error(
         "Gemini returned an invalid itinerary format."
       );
+    }
+
+    if (
+      !itinerary ||
+      typeof itinerary !== "object" ||
+      !Array.isArray(itinerary.days) ||
+      itinerary.days.length !== parsedDays ||
+      !itinerary.days.every(
+        (day) =>
+          day &&
+          Number.isInteger(day.day) &&
+          typeof day.title === "string" &&
+          typeof day.morning === "string" &&
+          typeof day.afternoon === "string" &&
+          typeof day.evening === "string"
+      )
+    ) {
+      throw new Error("Gemini returned an incomplete itinerary. Please try again.");
     }
 
     res.json({
